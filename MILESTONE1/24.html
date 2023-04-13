@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Highlighting</title>
+    <style>
+        .highlight{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <p class="para">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi beatae rem ea perspiciatis minus! Qui soluta veniam culpa perspiciatis totam ea vero asperiores dolores, itaque illo tempora assumenda, tempore dolore?</p>
+</body>
+<script>
+    const p = document.querySelector('.para')
+    const words = p.textContent.split(' ');
+    for(let i = 0; i < words.length; i++){
+        if(words[i].length > 8){
+            words[i]='<span class="highlight">' + words[i] + '</span>';
+        }
+    }
+    console.log(words)
+    p.innerHTML=words.join(' ');
+</script>
+</html>

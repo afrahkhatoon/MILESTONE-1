@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>password validate</title>
+    <style>
+        form{
+            display: flex;
+            flex-direction: column;
+            width: 20%; 
+        }
+        button{
+            margin: 16px;
+            width: 150px;
+            padding: 4px;
+        }
+        input{
+            padding: 4px;
+            margin: 4px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        E-mail: <input class="email" type="text" placeholder="Enter E-mail">
+        Password: <input  class="password" type="password" placeholder="Enter password">
+        <button class="submit">Submit</button>
+        <div class="output"></div>
+
+    </form>
+</body>
+<script>
+   let email=document.querySelector('.email')
+   let password=document.querySelector('.password')
+   let submit=document.querySelector('.submit')
+   let output=document.querySelector('.output')
+
+   submit.addEventListener("click",(e)=>{
+    e.preventDefault();
+    if(!email.value.includes('@') || password.value.length<8){
+        output.innerText='INVALID EMAIL AND PASSWORD'
+        output.style.color="red";
+    }else{
+        output.innerText='VALID EMAIL AND PASSWORD'
+        output.style.color='green' 
+    }
+   })
+
+</script>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO-DO APP</title>
+</head>
+<body>
+    <h1>TO-DO ITEMS</h1>
+    <div>
+      <input type="text" id="todo-input" placeholder="Add TODO item...">
+      <button id="add-btn">Add</button>
+    </div>
+    <ul id="todo-list">
+    </ul>
+    
+</body>
+<script>
+   var todoInput = document.getElementById('todo-input');
+var addBtn = document.getElementById('add-btn');
+var todoList = document.getElementById('todo-list');
+
+addBtn.addEventListener('click', function() {
+  var todoText = todoInput.value.trim();
+  if (todoText !== '') {
+    var todoItem = document.createElement('li');
+    todoItem.innerText = todoText;
+    todoList.appendChild(todoItem);
+    todoInput.value = '';
+  }
+});
+
+todoInput.addEventListener('keydown', function(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    addBtn.click();
+  }
+});
+
+
+</script>
+</html>

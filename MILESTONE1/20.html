@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamically adding list items to an ordered list</title>
+</head>
+<style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  margin: 20px;
+  background-color: cadetblue;
+}
+li {
+  margin: 10px;
+  font-size: 18px;
+  list-style-type: none;
+}
+button {
+  padding: 8px 10px;
+  background-color: chartreuse;
+  font-size: 18px;
+}
+button:hover {
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: 500;
+}
+</style>
+<body>
+    <h2>What You'll Learn</h2>
+    <ul id="list"></ul>
+    <button id="add-btn">Add Item</button>
+</body>
+<script>
+    const items = [
+  "HTML and Semantics",
+  "Starting with CSS",
+  "Working Template",
+  "Mobile responsive webpages",
+  "Grid and Flex-box in CSS",
+  "Projects using HTML & CSS",
+  "Version Control and Git",
+  "Getting Started with JavaScript",
+  "Advance JavaScript",
+  "Working with DOM",
+  "Making Projects using HTML, CSS and JavaScript",
+  "Understanding Fundamental of Computer Science",
+  "Getting Started with Database",
+  "Understanding the Database",
+  "Starting with NodeJS and Express",
+  "Understanding React and its Fundamentals",
+  "Understanding Hooks and Routers",
+  "Starting and Completing Full Fledge Projects",
+];
+
+// Code for add a new list item in sequential order
+
+const list = document.getElementById("list");
+const button = document.getElementById("add-btn");
+let currentItemIndex = 0;
+
+button.addEventListener("click", () => {
+  if (currentItemIndex < items.length) {
+    const newItem = document.createElement("li");
+    newItem.textContent = "=>" + items[currentItemIndex];
+    list.appendChild(newItem);
+    currentItemIndex++;
+  } else {
+    alert("All items have been added.");
+  }
+});
+</script>
+</html>
